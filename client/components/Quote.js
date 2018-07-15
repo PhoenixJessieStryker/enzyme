@@ -5,7 +5,7 @@ import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
 import {fetchQuote, fetchSecretQuote} from '../actions/quote'
 
-const Quote = (props) => {
+export const Quote = (props) => {
   const {onQuoteClick, onSecretQuoteClick, quote} = props
 
   return (

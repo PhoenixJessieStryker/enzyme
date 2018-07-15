@@ -3,7 +3,7 @@ import React from 'react'
 import Quote from './Quote'
 import Navbar from './Navbar'
 
-const App = () => {
+export const App = () => {
   return (
     <div>
       <h1>Quotes</h1>
