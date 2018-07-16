@@ -20,7 +20,8 @@
   },
   "jest": {
     "setupFiles": [
-      "dotenv/config"
+      "dotenv/config",
+      "./tests/setup.js"
     ]
   },
   "babel": {
@@ -38,6 +39,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "dotenv": "^5.0.0",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.2",
     "express-jwt": "^5.3.0",
     "jsonwebtoken": "^8.1.1",

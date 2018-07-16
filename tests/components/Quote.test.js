@@ -1,19 +1,43 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme';
-import ConnectedHome,{Home} from '../src/js/components/Home'
 import configureStore from 'redux-mock-store'
 import {Provider} from 'react-redux'
 
-import Quote from './../../client/components/Quote'
+import Quote from '../../client/components/Quote'
 
 describe('<Quote />', () => {
-  let wrapper
+  const mockStore = configureStore()
+  
+  let wrapper, store
+  const initialState = {
+    auth: {
+      isFetching: false,
+      isAuthenticated: false,
+      user: null,
+      errorMessage: ''
+    },
+    quote: {
+      isFetching: false,
+      errorMessage: '',
+      quote: 'heyo'
+    }
+  }
 
   beforeEach(() => {
-    wrapper = shallow(<Quote />)
+    store = mockStore(initialState)
+
+    wrapper = shallow(
+      <Quote store={store}/>
+    )
   })
 
   it('renders', () => {
     expect(wrapper).toBeDefined()
+  })
+
+  it('has tow buttons', () => {
+    console.log(wrapper.dive().html());
+    
+    expect(wrapper.find('button')).toHaveLength(2)
   })
 })

@@ -11,10 +11,10 @@ export const Quote = (props) => {
   return (
     <div>
       <div>
-        <button onClick={onQuoteClick}>
+        <button className='public-quote' onClick={onQuoteClick}>
           Get Public Quote
         </button> {' '}
-        <button onClick={onSecretQuoteClick}>
+        <button className='secret-quote' onClick={onSecretQuoteClick}>
           Get Private Quote
         </button>
       </div>
