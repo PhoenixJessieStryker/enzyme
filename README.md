@@ -1,3 +1,22 @@
+# Some example Enzyme tests on top of the one of Secret/Public Quotes repo
+
+- Most of the structure of this repo is the exact same as the forked boiler plate
+- The tests are all inside tests/components/Quote.test.js
+- package json has a 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React/Redux client consuming an Express server with Passport local auth using JWTs
 
 This demonstrates a fairly minimal username/password auth scenario that makes use of libsodium/Argon2i password hashing. There's also a tiny API to show how JWTs might be used to secure it.
