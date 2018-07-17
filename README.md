@@ -5,18 +5,7 @@
 - Some initial configuration of Enzyme goes on in tests/setup.js, this get's run by jest automatically, look in package.json in 'jest' to see where this is hooked in
 - The tests are split into unconnected and connected (to redux store) tests
 
-
-
-
-
-
-
-
-
-
-
-
-
+# ORIGINAL README
 
 # React/Redux client consuming an Express server with Passport local auth using JWTs
 
