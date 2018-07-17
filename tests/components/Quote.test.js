@@ -21,6 +21,7 @@ describe('<Quote />', () => {
 
   describe('unconnected tests:', () => {
     beforeEach(() => {
+      // initial test conditions
       wrapper = shallow(
         <Quote />
       )
@@ -71,6 +72,7 @@ describe('<Quote />', () => {
     }
 
     beforeEach(() => {
+      // initial test conditions
       store = mockStore(initialState)
 
       wrapper = shallow(
