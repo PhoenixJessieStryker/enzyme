@@ -1,3 +1,12 @@
+# Some example Enzyme tests
+
+- Most of the structure of this repo is the exact same as the forked secret/public quote repo
+- All tests are in tests/components/Quote.test.js and work with the Quote.js component
+- Some initial configuration of Enzyme goes on in tests/setup.js, this get's run by jest automatically, look in package.json in 'jest' to see where this is hooked in
+- The tests are split into unconnected and connected (to redux store) tests
+
+# ORIGINAL README
+
 # React/Redux client consuming an Express server with Passport local auth using JWTs
 
 This demonstrates a fairly minimal username/password auth scenario that makes use of libsodium/Argon2i password hashing. There's also a tiny API to show how JWTs might be used to secure it.
