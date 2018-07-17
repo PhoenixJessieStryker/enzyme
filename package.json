@@ -16,7 +16,7 @@
     "postinstall": "webpack && npm run migrate",
     "start": "node server",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watch"
   },
   "jest": {
     "setupFiles": [

@@ -1,10 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store'
-import { Provider } from 'react-redux'
-import { applyMiddleware } from 'redux'
-
-import '../setup-dom'
 
 import ConnectedQuote, { Quote } from '../../client/components/Quote'
 import thunk from 'redux-thunk'
@@ -12,7 +8,7 @@ import thunk from 'redux-thunk'
 jest.mock('../../client/actions/quote.js', () => ({
   fetchQuote: () => dispatch => dispatch({
     type: 'TEST',
-    quote: "If a Quiz is Quizzical, what's a test?"
+    quote: "public"
   }),
   fetchSecretQuote: () => dispatch => dispatch({
     type: 'SECRET_TEST',
@@ -23,7 +19,7 @@ jest.mock('../../client/actions/quote.js', () => ({
 describe('<Quote />', () => {
   let wrapper;
 
-  describe('unconnected', () => {
+  describe('unconnected tests:', () => {
     beforeEach(() => {
       wrapper = shallow(
         <Quote />
@@ -33,9 +29,13 @@ describe('<Quote />', () => {
     it('renders', () => {
       expect(wrapper).toBeDefined()
     })
-
-    it('has tow buttons', () => {
+    
+    it('has two buttons', () => {
       expect(wrapper.find('button')).toHaveLength(2)
+    })
+    
+    it('empty quote in props causes render without p tag', () => {
+      expect(wrapper.find('p')).toHaveLength(0)
     })
 
     it('quote in props causes render with p tag', () => {
@@ -45,35 +45,31 @@ describe('<Quote />', () => {
         quote: fakeQuote
       })
 
-      console.log(wrapper.props());
-      
-
       const ptags = wrapper.find('p')
       expect(ptags).toHaveLength(1)
       expect(ptags.first().text()).toEqual(fakeQuote)
-      // end()
     })
   })
+  
+  describe('redux connected tests', () => {
+    const mockStore = configureStore([thunk])
+  
+    let store
 
-
-  const mockStore = configureStore([thunk])
-
-  let store
-  const initialState = {
-    auth: {
-      isFetching: false,
-      isAuthenticated: false,
-      user: null,
-      errorMessage: ''
-    },
-    quote: {
-      isFetching: false,
-      errorMessage: '',
-      quote: ''
+    const initialState = {
+      auth: {
+        isFetching: false,
+        isAuthenticated: false,
+        user: null,
+        errorMessage: ''
+      },
+      quote: {
+        isFetching: false,
+        errorMessage: '',
+        quote: ''
+      }
     }
-  }
 
-  describe('connected', () => {
     beforeEach(() => {
       store = mockStore(initialState)
 
@@ -82,19 +78,20 @@ describe('<Quote />', () => {
       )
     })
 
-
     it('clicking public quote button dispatches fetchQuote action', () => {
+      // simulate clicking button in the component
       wrapper.dive().find('.public-quote').simulate('click')
 
       let actions = store.getActions()
       expect(actions).toHaveLength(1)
       expect(actions[0]).toEqual({
         type: 'TEST',
-        quote: "If a Quiz is Quizzical, what's a test?"
+        quote: "public"
       })
     })
 
     it('clicking secret quote button dispatches fetchSecretQuote action', () => {
+      // simulate clicking button in the component
       wrapper.dive().find('.secret-quote').simulate('click')
 
       let actions = store.getActions()
@@ -105,11 +102,5 @@ describe('<Quote />', () => {
         quote: "secret"
       })
     })
-
-    it('empty quote in props causes render without enclosing p tag', () => {
-      expect(wrapper.dive().find('p')).toHaveLength(0)
-    })
-
-    
   })
 })
