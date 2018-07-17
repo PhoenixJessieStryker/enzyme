@@ -1,8 +1,10 @@
 # Some example Enzyme tests
 
+Here's some tests hope they are handy, some info about the layout:
+
 - Most of the structure of this repo is the exact same as the forked secret/public quote repo
-- All tests are in tests/components/Quote.test.js and work with the Quote.js component
-- Some initial configuration of Enzyme goes on in tests/setup.js, this get's run by jest automatically, look in package.json in 'jest' to see where this is hooked in
+- All tests are in <i>tests/components/Quote.test.js</i> and work with the Quote.js component
+- Initial configuration of Enzyme goes on in <i>tests/setup.js</i> which gets run by jest automatically, look in package.json in 'jest' to see where this is hooked in
 - The tests are split into unconnected and connected (to redux store) tests
 
 # ORIGINAL README
