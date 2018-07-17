@@ -1,7 +1,7 @@
-# Some example Enzyme tests on top of the one of Secret/Public Quotes repo
+# Some example Enzyme tests
 
-- Most of the structure of this repo is the exact same as the forked boiler plate
-- The tests are all inside tests/components/Quote.test.js
+- Most of the structure of this repo is the exact same as the forked secret/public quote repo
+- All tests are in tests/components/Quote.test.js and work with the Quote.js component
 - package json has a 
 
 
